@@ -232,4 +232,17 @@ function initMoveEvents() {
       el.classList.remove("inactive");
     });
   })
+
+  let closeButtons = document.getElementsByClassName("close");
+  Array.prototype.forEach.call(closeButtons, (el)=>{
+    el.onclick = ((event)=>{
+      Array.prototype.forEach.call(windows, (w)=>{
+        if(w.contains(event.target)) {
+          w.remove();
+        }
+      });
+
+    });
+});
 }
+
