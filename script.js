@@ -243,6 +243,22 @@ function initMoveEvents() {
       });
 
     });
-});
+  });
+
+  let maximizeButtons = document.getElementsByClassName("maximize");
+  Array.prototype.forEach.call(maximizeButtons, (el)=>{
+    el.onclick = ((event)=>{
+      Array.prototype.forEach.call(windows, (w)=>{
+        if(w.contains(event.target)) {
+          if(Object.values(w.classList).includes("maximized")) {
+            w.classList.remove("maximized");
+          }else {
+            w.classList.add("maximized");
+          }
+        }
+      });
+
+    });
+  });
 }
 
