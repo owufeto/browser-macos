@@ -7,6 +7,7 @@ class cWindow {
     this.minWidth = minWidth;
   }
   
+  lol = "lol";
   left = "0px";
   top = "0px";
 
