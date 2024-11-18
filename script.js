@@ -1,10 +1,11 @@
 class cWindow {
-	constructor(title, width, height, minWidth, minHeight) {
+	constructor(title, width, height, minWidth, minHeight, content) {
   	this.title = title;
     this.width = width;
     this.height = height;
     this.minHeight = minHeight;
     this.minWidth = minWidth;
+    this.content = content;
   }
   
   left = "0px";
@@ -55,10 +56,17 @@ class cWindow {
     
     win.appendChild(header);
     
-		const content = document.createElement("div");
-    content.classList.add("content");
+		const contentContainer = document.createElement("div");
+    contentContainer.classList.add("content");
+
+    if(typeof(this.content) === "string" || typeof(this.content) === "number") {
+      contentContainer.innerHTML = this.content;
+    }else if(this.content == undefined){
+    }else{
+      contentContainer.appendChild(this.content);
+    }
     
-    win.appendChild(content);
+    win.appendChild(contentContainer);
 
 
     const tLine = document.createElement("div");
@@ -99,9 +107,9 @@ class cWindow {
   }
 }
 
-const terminal = new cWindow("terminal", 500, 500, 250,250);
+const terminal = new cWindow("terminal", 500, 500, 250,250, 1);
 terminal.createWindow();
-let term = new cWindow("terminal", 600, 600, 350,350);
+let term = new cWindow("terminal", 600, 600, 350,350, 2);
 term.createWindow();
 
 
@@ -262,3 +270,18 @@ function initMoveEvents() {
   });
 }
 
+
+
+const icons = document.getElementsByClassName("icon");
+
+Array.prototype.forEach.call(icons, (el) => {
+  el.onclick = ((event)=>{
+    if(event.target.id == "terminal") {
+      new cWindow("Terminal", 600,500, 400,400, "soon!").createWindow();
+    }else if(event.target.id == "settings") {
+      new cWindow("Settings", 600,500, 400,400, "soon!").createWindow();
+    }else if(event.target.id == "safari") {
+      new cWindow("Safari", 600,500, 400,400, "soon!").createWindow();
+    }
+  })
+});
