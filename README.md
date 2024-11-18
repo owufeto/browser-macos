@@ -1,1 +1,2 @@
-MacOS desktop simulator
+ - MacOS desktop simulator
+ - You can try it at https://owufeto.github.io/browser-macos/
