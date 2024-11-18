@@ -7,6 +7,23 @@
   user-select: none;
 }
 
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+#bg {
+  position: absolute;
+  z-index: -100;
+
+  width:100%;
+  height:100%;
+  
+  background-image: url(img/wallpaper1.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
 .window {
   position: absolute;
   border: 2px solid rgb(200, 200, 200);
