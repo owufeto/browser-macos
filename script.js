@@ -107,6 +107,60 @@ class cWindow {
   }
 }
 
+function settings() {
+  const setDiv = document.createElement("div");
+  setDiv.classList.add("settCont");
+
+  const walpCont = document.createElement("div");
+  walpCont.classList.add("walp-cont");
+
+  const walpPrev1 = document.createElement("img");
+  walpPrev1.classList.add("walp-prev");
+  walpPrev1.src="img/wallpaper1.jpg";
+  walpCont.appendChild(walpPrev1);
+
+  const walpPrev2 = document.createElement("img");
+  walpPrev2.classList.add("walp-prev");
+  walpPrev2.src="img/wallpaper2.jpg";
+  walpCont.appendChild(walpPrev2);
+
+  const walpPrev3 = document.createElement("img");
+  walpPrev3.classList.add("walp-prev");
+  walpPrev3.src="img/wallpaper3.jpeg";
+  walpCont.appendChild(walpPrev3);
+
+  setDiv.appendChild(walpCont);
+
+  const drkcont = document.createElement("div");
+  drkcont.classList.add("drkcont")
+
+  const darkthp = document.createElement("p");
+  darkthp.classList.add("drkp");
+  darkthp.textContent = "Dark mode: ";
+
+  const togl = document.createElement("input");
+  togl.classList.add("toggle")
+
+  togl.type="range";
+  togl.min=0;
+  togl.max=1;
+  togl.value=0
+  togl.step=1;
+  togl.oninput= ((event)=>{
+    event.target.dataset.value = event.target.value;
+  });
+
+  togl.onchange = ( (ev)=> {themeChange(ev)});
+
+  drkcont.appendChild(darkthp);
+  drkcont.appendChild(togl);
+
+  setDiv.appendChild(drkcont);
+  return setDiv;
+
+
+}
+
 const terminal = new cWindow("terminal", 500, 500, 250,250, 1);
 terminal.createWindow();
 let term = new cWindow("terminal", 600, 600, 350,350, 2);
@@ -253,6 +307,22 @@ function initMoveEvents() {
     });
   });
 
+  let minimizeButtons = document.getElementsByClassName("minimize");
+  Array.prototype.forEach.call(minimizeButtons, (el)=>{
+    el.onclick = ((event)=>{
+      Array.prototype.forEach.call(windows, (w)=>{
+        if(w.contains(event.target)) {
+          if(Object.values(w.classList).includes("minimized")) {
+            w.classList.remove("minimized");
+          }else {
+            w.classList.add("minimized");
+          }
+        }
+      });
+
+    });
+  });
+
   let maximizeButtons = document.getElementsByClassName("maximize");
   Array.prototype.forEach.call(maximizeButtons, (el)=>{
     el.onclick = ((event)=>{
@@ -270,7 +340,34 @@ function initMoveEvents() {
   });
 }
 
+function wlp() {
+  let walpPrevs = document.getElementsByClassName("walp-prev");
+    const bg = document.getElementById("bg");
+    Array.prototype.forEach.call(walpPrevs, (wp)=>{
+      wp.onclick = ((event)=>{
+        bg.style.backgroundImage = `url(${event.target.src})`;
 
+      });
+    });
+}
+
+let DARKMODE = 0;
+
+function themeChange(event) {
+  if(DARKMODE == 0) {
+    DARKMODE = 1;
+    const themecss = document.createElement("link");
+    themecss.rel="newer stylesheet";
+    themecss.href = "dark-style.css";
+    themecss.id="dark-theme-css";
+    document.querySelector("head").appendChild(themecss);
+    console.log(DARKMODE);
+  }else {
+    DARKMODE = 0;
+    document.getElementById("dark-theme-css").remove();
+    console.log(DARKMODE);
+  }
+}
 
 const icons = document.getElementsByClassName("icon");
 
@@ -279,9 +376,17 @@ Array.prototype.forEach.call(icons, (el) => {
     if(event.target.id == "terminal") {
       new cWindow("Terminal", 600,500, 400,400, "soon!").createWindow();
     }else if(event.target.id == "settings") {
-      new cWindow("Settings", 600,500, 400,400, "soon!").createWindow();
+      new cWindow("Settings", 600,500, 400,400, settings()).createWindow();
+      wlp();
     }else if(event.target.id == "safari") {
-      new cWindow("Safari", 600,500, 400,400, "soon!").createWindow();
+      new cWindow("Safari", 600,500, 400,400, `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"></iframe>`).createWindow();
+    }else if(event.target.id == "showAll") {
+      const windows = document.getElementsByClassName("window");
+      Array.prototype.forEach.call(windows, (wind)=>{
+        if(Object.values(wind.classList).includes("minimized")) {
+          wind.classList.remove("minimized");
+        }
+      });
     }
   })
 });

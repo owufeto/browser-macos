@@ -1,0 +1,31 @@
+.settCont {
+  background-color: rgb(32, 32, 32);
+}
+
+.drkp {
+  color: white;
+}
+
+.header {
+  background-color: rgb(53, 53, 53);
+}
+
+.title {
+  color: white;
+}
+
+.window {
+  border: 2px solid rgb(68, 68, 68);
+}
+
+#dock-panel {
+  background-color: rgba(0, 0, 0, 0.35);
+}
+
+.icon {
+  background-color: rgba(117, 117, 117, 0.37);
+}
+
+.icon:hover {
+  background-color: rgba(142, 142, 142, 0.27);
+}
