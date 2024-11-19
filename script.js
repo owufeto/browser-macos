@@ -382,7 +382,7 @@ Array.prototype.forEach.call(icons, (el) => {
       new cWindow("Settings", 600,500, 400,400, settings()).createWindow();
       wlp();
     }else if(event.target.id == "safari") {
-      new cWindow("Safari", 600,500, 400,400, `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/hvL1339luv0?autoplay=1" allow="autoplay"></iframe>`).createWindow();
+      new cWindow("Safari", 600,500, 400,400, `<iframe src="https://www.youtube.com/embed/hvL1339luv0?autoplay=1" width="100%" height="100%" allow="autoplay"></iframe>`).createWindow();
     }else if(event.target.id == "showAll") {
       const windows = document.getElementsByClassName("window");
       Array.prototype.forEach.call(windows, (wind)=>{
