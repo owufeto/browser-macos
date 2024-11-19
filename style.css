@@ -138,8 +138,9 @@ body {
 }
 
 input.toggle {
-  -webkit-appearance: none;
   appearance: none;
+  -webkit-appearance: none;
+  
   background: rgb(130,130,130);
   cursor: pointer;
   border-radius:20px;
@@ -150,10 +151,15 @@ input.toggle {
 }
 
 
-/***** Chrome, Safari, Opera, and Edge Chromium *****/
+
 input.toggle[type="range"]::-webkit-slider-thumb {
   background: white;
+  appearance: none;
+  -webkit-appearance: none;
   height: 1.25rem;
+  width: 1.25rem;
+  border-radius: 50%;
+  border: 2px solid rgb(130,130,130);
 }
 
 input.toggle[type="range"]::-moz-range-thumb {
@@ -169,6 +175,10 @@ input.toggle[type="range"][data-value="1"]  {
 }
 
 input.toggle[type="range"][data-value="1"]::-moz-range-thumb   {
+  border-color: rgb(30,200,30);
+}
+
+input.toggle[type="range"][data-value="1"]::-webkit-slider-thumb  {
   border-color: rgb(30,200,30);
 }
 
