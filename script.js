@@ -1,3 +1,5 @@
+let DARKMODE = 0;
+
 class cWindow {
 	constructor(title, width, height, minWidth, minHeight, content) {
   	this.title = title;
@@ -144,7 +146,8 @@ function settings() {
   togl.type="range";
   togl.min=0;
   togl.max=1;
-  togl.value=0
+  togl.value=DARKMODE;
+  togl.dataset.value=DARKMODE;
   togl.step=1;
   togl.oninput= ((event)=>{
     event.target.dataset.value = event.target.value;
@@ -351,7 +354,7 @@ function wlp() {
     });
 }
 
-let DARKMODE = 0;
+
 
 function themeChange(event) {
   if(DARKMODE == 0) {
@@ -379,7 +382,7 @@ Array.prototype.forEach.call(icons, (el) => {
       new cWindow("Settings", 600,500, 400,400, settings()).createWindow();
       wlp();
     }else if(event.target.id == "safari") {
-      new cWindow("Safari", 600,500, 400,400, `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"></iframe>`).createWindow();
+      new cWindow("Safari", 600,500, 400,400, `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/hvL1339luv0?si=Ix7EysbYyH7NQHZT?autoplay=1"></iframe>`).createWindow();
     }else if(event.target.id == "showAll") {
       const windows = document.getElementsByClassName("window");
       Array.prototype.forEach.call(windows, (wind)=>{
