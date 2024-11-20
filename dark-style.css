@@ -29,3 +29,8 @@
 .icon:hover {
   background-color: rgba(142, 142, 142, 0.27);
 }
+
+
+#panel {
+  background-color: rgba(32, 32, 32, 0.8);
+}

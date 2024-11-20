@@ -26,8 +26,9 @@ class cWindow {
     win.style.height = `${this.height}px`;
     win.style.minWidth = `${this.minWidth}px`;
     win.style.minHeight = `${this.minHeight}px`;
-    win.style.left = 0;
-    win.style.top = 0;
+    win.style.left = `${window.innerWidth /2 - this.width /2}px`;
+    win.style.top = `${window.innerHeight /2 - this.height /2}px`;
+    console.log(window.innerHeight /2 - this.height /2)
     
     const header = document.createElement("div");
     header.classList.add("header");
@@ -106,6 +107,7 @@ class cWindow {
     
     document.body.appendChild(win);
     initMoveEvents();
+    getActiveTitle();
   }
 }
 
@@ -295,6 +297,7 @@ function initMoveEvents() {
       });
 
       el.classList.remove("inactive");
+      getActiveTitle();
     });
   })
 
@@ -304,6 +307,7 @@ function initMoveEvents() {
       Array.prototype.forEach.call(windows, (w)=>{
         if(w.contains(event.target)) {
           w.remove();
+          getActiveTitle();
         }
       });
 
@@ -317,10 +321,15 @@ function initMoveEvents() {
         if(w.contains(event.target)) {
           if(Object.values(w.classList).includes("minimized")) {
             w.classList.remove("minimized");
+            
+
           }else {
             w.classList.add("minimized");
+            w.classList.add("inactive");
+
           }
         }
+        getActiveTitle();
       });
 
     });
@@ -354,7 +363,29 @@ function wlp() {
     });
 }
 
+function getActiveTitle(){
+  const activeApp = document.getElementById("active-app");
+  if(document.querySelector(".window:not(.inactive)") !== null) {
+    const title = document.querySelector(".window:not(.inactive)").childNodes[0].childNodes[3].textContent;
+    activeApp.style.display = "inline";
+    activeApp.textContent = title;
+    console.log(2);
+  }else {
+    activeApp.style.display = "none";
+    console.log(1);
+  }
+}
 
+function getTime() {
+  let date = new Date();
+  const days = ["", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+  const tp = document.getElementById("time");
+
+  tp.textContent = `${days[date.getDay()]} ${date.getHours()}:${date.getMinutes()}`;
+}
+
+setInterval(getTime, 300);
 
 function themeChange(event) {
   if(DARKMODE == 0) {
