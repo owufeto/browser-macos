@@ -307,7 +307,7 @@ iframe {
   height:calc(100% - 30px);
   width:100%;
   
-  background-color:gray;
+  /*background-color:gray;*/
 }
 
 .circle-button {

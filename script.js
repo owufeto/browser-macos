@@ -166,12 +166,6 @@ function settings() {
 
 }
 
-const terminal = new cWindow("terminal", 500, 500, 250,250, 1);
-terminal.createWindow();
-let term = new cWindow("terminal", 600, 600, 350,350, 2);
-term.createWindow();
-
-
 function initMoveEvents() {
   let headers = document.getElementsByClassName("header");
   Array.prototype.forEach.call(headers, (el)=> {
@@ -408,7 +402,7 @@ const icons = document.getElementsByClassName("icon");
 Array.prototype.forEach.call(icons, (el) => {
   el.onclick = ((event)=>{
     if(event.target.id == "terminal") {
-      new cWindow("Terminal", 600,500, 400,400, "soon!").createWindow();
+      new cWindow("Terminal", 600,500, 400,400, `<div class=wTerminal data-text=""><p class="current username">user@browser ~ % <span class="user-input"> </span></p></div>`).createWindow();
     }else if(event.target.id == "settings") {
       new cWindow("Settings", 600,500, 400,400, settings()).createWindow();
       wlp();
