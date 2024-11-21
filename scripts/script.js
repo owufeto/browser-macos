@@ -386,7 +386,7 @@ function themeChange(event) {
     DARKMODE = 1;
     const themecss = document.createElement("link");
     themecss.rel="newer stylesheet";
-    themecss.href = "dark-style.css";
+    themecss.href = "styles/dark-style.css";
     themecss.id="dark-theme-css";
     document.querySelector("head").appendChild(themecss);
     console.log(DARKMODE);
@@ -418,3 +418,20 @@ Array.prototype.forEach.call(icons, (el) => {
     }
   })
 });
+
+const ccbtn = document.getElementById("ctrl-center-button");
+const cc = document.getElementById("ctrl-center");
+
+ccbtn.onclick = (()=>{
+  if(cc.style.display == "grid") {
+    cc.style.opacity = '0';
+    setTimeout(()=>{
+      cc.style.display = "none";
+    },200)
+  }else {
+    cc.style.display = "grid";
+    setTimeout(()=>{
+      cc.style.opacity = '1';
+    },200)
+  }
+})

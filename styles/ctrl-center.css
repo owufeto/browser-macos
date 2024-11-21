@@ -1,0 +1,232 @@
+#ctrl-center {
+  display: none;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+    'wba wba dnd dnd'
+    'wba wba ad ad'
+    'display display display display'
+    'sound sound sound sound'
+    'music music music music';
+  gap: 10px;
+  padding: 10px;
+  width: 400px;
+  height: 500px;
+  border-radius: 15px;
+  background-color: rgba(100, 100, 100, 0.7);
+  backdrop-filter: blur(10px);
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  opacity: 0;
+  transition: all 0.2s ease-out;
+}
+
+#ctrl-center > div {
+  background-color: rgb(170, 170, 170);
+  border-radius: 15px;
+  position: relative;
+}
+
+
+.wba { grid-area: wba; }
+.dnd { grid-area: dnd; }
+.kb { grid-area: kb; }
+.ad { grid-area: ad; }
+.display { grid-area: display; }
+.sound { grid-area: sound; }
+.music { grid-area: music; }
+
+.option {
+  
+  width:100%;
+  height: 33%;
+  cursor: pointer 
+}
+
+.option:hover {
+  background-color: rgb(150, 149, 149);
+  border-radius: 15px;
+}
+
+.option-name {
+  font-weight:550;
+}
+
+.option-button {
+  background-color: #017AFF;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+
+  top: calc(50% - 20px);
+
+  width:40px;
+  height:40px;
+  margin: 0 8px;
+
+}
+
+.option-button .svg-icon {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+  position: relative;
+  top: calc(50% - 17px);
+}
+
+.option-info {
+  display: inline-block;
+  position: relative;
+
+  color:white;
+  font-family: system-ui;
+  top: calc(50% - 27px);
+}
+
+.option-status {
+  font-size: 13px;
+  color:#f7f7f7
+}
+
+.dnd {
+  position: relative;
+}
+
+.dnd .option {
+  height:100%;
+}
+
+.dnd .option-button {
+  background-color: gray;
+  top: calc(50% - 20px)
+}
+
+.dnd .option-info {
+  top: 0;
+}
+
+.dnd .option-name {
+  position: relative;
+  top: 10px
+}
+
+.ad {
+  position: relative;
+}
+
+.ad .option {
+  height:100%;
+}
+
+.ad .option-button {
+  background-color: gray;
+  top: calc(50% - 20px)
+}
+
+.ad .option-info {
+  top: 0;
+}
+
+.ad .option-name {
+  position: relative;
+  top: 10px
+}
+
+.display p {
+  color:white;
+  font-weight: 550;
+  font-family: system-ui;
+
+  margin-left: 20px;
+}
+
+.display > div {
+  width: 360px;
+  height:25px;
+  position: relative;
+  left: calc(50% - 180px);
+
+  background-color: rgb(90, 90, 90);
+  border-radius: 20px;
+
+  overflow: hidden;
+}
+
+#disp-line {
+  background-color: white;
+  width:100%;
+  height:100%;
+  display: inline-block;
+}
+
+#disp-circle {
+  background-color: white;
+  display: inline-block;
+  width:24px;
+  height:24px;
+  border-radius: 50%;
+  border: 1px solid gray;
+  position: absolute;
+  left: calc( 100% - 26px );
+  cursor: pointer;
+}
+
+.sound p {
+  color:white;
+  font-weight: 550;
+  font-family: system-ui;
+
+  margin-left: 20px;
+}
+
+.sound > div {
+  width: 360px;
+  height:25px;
+  position: relative;
+  left: calc(50% - 180px);
+
+  background-color: rgb(90, 90, 90);
+  border-radius: 20px;
+
+  overflow: hidden;
+}
+
+#sound-line {
+  background-color: white;
+  width:70%;
+  height:100%;
+  display: inline-block;
+}
+
+#sound-circle {
+  background-color: white;
+  display: inline-block;
+  width:24px;
+  height:24px;
+  border-radius: 50%;
+  border: 1px solid gray;
+  position: absolute;
+  left: calc( 70% - 12px );
+  cursor: pointer;
+}
+
+.music img {
+ position: relative;
+ top: calc(50% - 35px);
+ margin-left: 10px;
+}
+
+#music-info {
+  display: inline-block;
+  margin-left: 10px;
+
+  color: white;
+  font-family: system-ui;
+  font-weight: 550;
+
+  position: absolute;
+  top: calc(50% - 10px);
+  
+}

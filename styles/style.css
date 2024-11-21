@@ -20,7 +20,7 @@ body {
   width:100%;
   height:100%;
   
-  background-image: url(img/wallpaper1.jpg);
+  background-image: url(../img/wallpaper1.jpg);
   background-size: cover;
   background-position: center;
 }
@@ -69,15 +69,15 @@ body {
 }
 
 #settings {
-  background-image: url(img/settings.png);
+  background-image: url(../img/settings.png);
 }
 
 #terminal {
-  background-image: url(img/terminal.png);
+  background-image: url(../img/terminal.png);
 }
 
 #safari {
-  background-image: url(img/safari.png);
+  background-image: url(../img/safari.png);
 }
 
 #dash {
@@ -110,7 +110,7 @@ body {
 }
 
 #trash {
-  background-image: url(img/trash.png);
+  background-image: url(../img/trash.png);
   background-color: rgba(0,0,0,0);
 }
 
@@ -148,9 +148,9 @@ body {
   font-weight: 550;
 
   display: inline;
-
+  line-height: 30px;
   margin: 0 10px;
-  padding:6px 5px;
+  padding:0 5px;
   border-radius: 5px;
 }
 
@@ -158,11 +158,23 @@ body {
   background-color: rgb(124, 124, 124);
 }
 
+.panel-icon {
+  margin: 0 5px;
+  padding: 2px;
+  border-radius: 5px;;
+}
+
+.panel-icon:hover {
+  background-color: rgba(177, 177, 177, 0.589);
+}
+
+#first-icon {
+  margin-left: auto;
+}
+
 #time {
   color:white;
-
-  margin-left: auto;
-  margin-right:10px;
+  margin: 0 15px;
 }
 
 .settCont {
